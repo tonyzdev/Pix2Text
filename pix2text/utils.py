@@ -716,6 +716,8 @@ def merge_line_texts(
             line_margin_list.append([0, 0])
             isolated_included.append(False)
         cur_text = _out['text']
+        if len(out_texts[-1]) == 0:
+            line_number -= 1
         if _out['type'] in ('embedding', 'isolated'):
             sep = isolated_sep if _out['type'] == 'isolated' else embed_sep
             cur_text = sep[0] + cur_text + sep[1]
